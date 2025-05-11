@@ -2,14 +2,14 @@ import discord
 import pickle
 from discord.ext import commands
 
-# Load model and vectorizer
+
 with open("toxic_model.pkl", "rb") as f:
     model = pickle.load(f)
 
 with open("vectorizer.pkl", "rb") as f:
     vectorizer = pickle.load(f)
 
-# Bot setup
+
 intents = discord.Intents.default()
 intents.messages = True
 intents.message_content = True
@@ -38,8 +38,8 @@ async def on_message(message):
             f"👋 Hello @{message.author.name}!"
         )
 
-    # Allow commands to work if you plan to add any
+    
     await bot.process_commands(message)
 
-# Replace 'your_token_here' with your actual token
+
 bot.run("your token name")
